@@ -11,3 +11,89 @@ Migrating to CreateUsers (20230323000319)
   [1m[36mActiveRecord::InternalMetadata Create (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-03-23 00:08:44.268170"], ["updated_at", "2023-03-23 00:08:44.268170"]]
   [1m[36mTRANSACTION (1533.6ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/user/login/check%20" for 127.0.0.1 at 2023-03-23 13:54:56 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/user/login/check%20"):
+  
+Started GET "/user/login" for 127.0.0.1 at 2023-03-23 13:55:28 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/user/login"):
+  
+Started GET "/user/login/check%20" for 127.0.0.1 at 2023-03-23 14:00:02 +0300
+  
+ArgumentError (Missing :controller key on routes definition, please check your routes.):
+  
+config/routes.rb:5:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/user/login/check%20" for 127.0.0.1 at 2023-03-23 14:01:53 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/user/login/check%20"):
+  
+Started GET "/user/login/check%20" for 127.0.0.1 at 2023-03-23 14:09:32 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/user/login/check%20"):
+  
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTodos (20230323112637)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "todos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar NOT NULL, "description" text NOT NULL, "status" integer DEFAULT 0 NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_d94154aa95"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_todos_on_user_id" ON "todos" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230323112637"]]
+  [1m[36mTRANSACTION (113.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/user/login/check%20" for 127.0.0.1 at 2023-03-23 14:53:41 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/user/login/check%20"):
+  
+Started GET "/user/login/check%20" for 127.0.0.1 at 2023-03-23 14:53:44 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/user/login/check%20"):
+  
+Started GET "/user/login/check%20" for 127.0.0.1 at 2023-03-23 14:54:11 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/user/login/check%20"):
+  
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 15:03:49 +0300
+  
+SyntaxError (/home/rose/Development/code2/phase-4/todos/api/app/controllers/application_controller.rb:27: syntax error, unexpected '=', expecting ')'
+...(Time.parse(session[:expiry]) = Time.now).to_i
+...                              ^
+/home/rose/Development/code2/phase-4/todos/api/app/controllers/application_controller.rb:29: syntax error, unexpected ':', expecting '}'
+        app_response{message: 'failed', status: 401, data:...
+                            ^
+/home/rose/Development/code2/phase-4/todos/api/app/controllers/application_controller.rb:29: syntax error, unexpected ',', expecting `end'
+...app_response{message: 'failed', status: 401, data: {info: 'y...
+...                              ^
+/home/rose/Development/code2/phase-4/todos/api/app/controllers/application_controller.rb:29: syntax error, unexpected '}', expecting `end'
+...ease login again to continue'}}
+...                              ^
+/home/rose/Development/code2/phase-4/todos/api/app/controllers/application_controller.rb:39: syntax error, unexpected ':', expecting '}'
+    pp{session: session[:uid]}
+              ^
+/home/rose/Development/code2/phase-4/todos/api/app/controllers/application_controller.rb:39: syntax error, unexpected '}', expecting `end'
+    pp{session: session[:uid]}
+                             ^
+/home/rose/Development/code2/phase-4/todos/api/app/controllers/application_controller.rb:42: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/application_controller.rb:27: syntax error, unexpected '=', expecting ')'
+app/controllers/application_controller.rb:29: syntax error, unexpected ':', expecting '}'
+app/controllers/application_controller.rb:29: syntax error, unexpected ',', expecting `end'
+app/controllers/application_controller.rb:29: syntax error, unexpected '}', expecting `end'
+app/controllers/application_controller.rb:39: syntax error, unexpected ':', expecting '}'
+app/controllers/application_controller.rb:39: syntax error, unexpected '}', expecting `end'
+app/controllers/application_controller.rb:42: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/application_controller.rb:27: syntax error, unexpected '=', expecting ')'
+app/controllers/application_controller.rb:29: syntax error, unexpected ':', expecting '}'
+app/controllers/application_controller.rb:29: syntax error, unexpected ',', expecting `end'
+app/controllers/application_controller.rb:29: syntax error, unexpected '}', expecting `end'
+app/controllers/application_controller.rb:39: syntax error, unexpected ':', expecting '}'
+app/controllers/application_controller.rb:39: syntax error, unexpected '}', expecting `end'
+app/controllers/application_controller.rb:42: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/todos_controller.rb:1:in `<main>'
